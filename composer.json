@@ -1,0 +1,28 @@
+{
+  "name": "chunhei2008/yunpian-sdk",
+  "description": "云片SDK",
+  "keywords": [
+    "yunpian",
+    "sms",
+    "yunpian-sdk",
+    "sdk"
+  ],
+  "authors": [
+    {
+      "name": "chunhei2008",
+      "email": "chunhei2008@qq.com"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "pimple/pimple": "^v3.0.0",
+    "monolog/monolog": "^1.22",
+    "guzzlehttp/guzzle": "^6.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Chunhei2008\\YunPian\\": "src/"
+    }
+  },
+  "minimum-stability": "dev"
+}
