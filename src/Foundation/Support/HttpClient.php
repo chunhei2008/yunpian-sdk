@@ -30,22 +30,39 @@ class HttpClient
      */
     protected function createClient()
     {
-        $this->client = new Client();
+        $this->client = new Client(
+            [
+                'http_errors' => false,
+            ]
+        );
     }
 
-    public function json($api, $params)
-    {
+    /**
+     * @param $method
+     * @param $api
+     * @param $params
+     *
+     * @return mixed
+     */
 
-        $response = $this->client->post($api, [
+    protected function request($method, $api, $params)
+    {
+        $response = $this->client->request($method, $api, [
             'form_params' => $params,
         ]);
-
-        if ($response->getStatusCode() == 200) {
-            $body = $response->getBody();
-            return json_decode($body->getContents(), true);
-        }
-
-        throw new YunPianException('网络错误');
+        return $response;
     }
 
+    /**
+     * @param $api
+     * @param $params
+     *
+     * @return mixed
+     */
+    public function json($api, $params)
+    {
+        $response = $this->request('POST', $api, $params);
+        $body     = $response->getBody();
+        return json_decode($body->getContents(), true);
+    }
 }

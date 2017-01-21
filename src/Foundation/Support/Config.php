@@ -76,7 +76,7 @@ class Config implements ArrayAccess
     public function get($offset, $default = null)
     {
         $offset  = trim($offset, '.');
-        $offsets = implode('.', $offset);
+        $offsets = explode('.', $offset);
         $config  = $this->config;
         foreach ($offsets as $offset) {
             if (!isset($config[$offset])) {
