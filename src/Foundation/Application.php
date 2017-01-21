@@ -1,7 +1,13 @@
 <?php
 namespace Chunhei2008\YunPian\Foundation;
 
+use Chunhei2008\YunPian\Foundation\Providers\CallServiceProvider;
+use Chunhei2008\YunPian\Foundation\Providers\FlowServiceProvider;
+use Chunhei2008\YunPian\Foundation\Providers\SignServiceProvider;
 use Chunhei2008\YunPian\Foundation\Providers\SmsServiceProvider;
+use Chunhei2008\YunPian\Foundation\Providers\TplServiceProvider;
+use Chunhei2008\YunPian\Foundation\Providers\UserServiceProvider;
+use Chunhei2008\YunPian\Foundation\Providers\VoiceServiceProvider;
 use Chunhei2008\YunPian\Foundation\Support\Config;
 use Chunhei2008\YunPian\Foundation\Support\Log;
 use Monolog\Handler\HandlerInterface;
@@ -25,8 +31,13 @@ class Application extends Container
      * @var array
      */
     protected $providers = [
+        CallServiceProvider::class,
+        FlowServiceProvider::class,
+        SignServiceProvider::class,
         SmsServiceProvider::class,
-        SignSer
+        TplServiceProvider::class,
+        UserServiceProvider::class,
+        VoiceServiceProvider::class,
     ];
 
     /**
@@ -36,6 +47,7 @@ class Application extends Container
      */
     public function __construct(array $config)
     {
+        parent::__construct();
         $this['config'] = function () use ($config) {
             return new Config($config);
         };

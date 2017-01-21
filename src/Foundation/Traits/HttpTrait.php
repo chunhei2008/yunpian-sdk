@@ -1,8 +1,7 @@
 <?php
 namespace Chunhei2008\YunPian\Foundation\Traits;
 
-use Chunhei2008\YunPian\Foundation\Http\HttpClient;
-
+use Chunhei2008\YunPian\Foundation\Support\HttpClient;
 
 /**
  * HttpTrait.php

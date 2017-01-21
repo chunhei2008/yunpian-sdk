@@ -1,7 +1,6 @@
 <?php
-namespace Chunhei2008\YunPian\Foundation\Http;
+namespace Chunhei2008\YunPian\Foundation\Support;
 
-use Chunhei2008\YunPian\Foundation\Support\YunPianException;
 use GuzzleHttp\Client;
 
 /**
