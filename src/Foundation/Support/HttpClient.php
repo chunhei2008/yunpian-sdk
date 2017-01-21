@@ -63,6 +63,8 @@ class HttpClient
     {
         $response = $this->request('POST', $api, $params);
         $body     = $response->getBody();
-        return json_decode($body->getContents(), true);
+        $content  = $body->getContents();
+        Log::info($content);
+        return json_decode($content, true);
     }
 }
