@@ -1,5 +1,5 @@
 <?php
-namespace Chunhei2008\YunPian\Sign;
+namespace Chunhei2008\YunPian\Core;
 /**
  * Sign.php
  *

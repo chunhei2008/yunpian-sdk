@@ -1,5 +1,5 @@
 <?php
-namespace Chunhei2008\YunPian\Sms;
+namespace Chunhei2008\YunPian\Core;
 
 use Chunhei2008\YunPian\Foundation\Api;
 use Chunhei2008\YunPian\Foundation\Support\YunPianException;

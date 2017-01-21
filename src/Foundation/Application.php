@@ -1,6 +1,7 @@
 <?php
 namespace Chunhei2008\YunPian\Foundation;
 
+use Chunhei2008\YunPian\Foundation\Providers\SmsServiceProvider;
 use Chunhei2008\YunPian\Foundation\Support\Config;
 use Chunhei2008\YunPian\Foundation\Support\Log;
 use Monolog\Handler\HandlerInterface;
@@ -24,8 +25,8 @@ class Application extends Container
      * @var array
      */
     protected $providers = [
-
-
+        SmsServiceProvider::class,
+        SignSer
     ];
 
     /**

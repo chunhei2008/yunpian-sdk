@@ -1,5 +1,5 @@
 <?php
-namespace Chunhei2008\YunPian\Foundation;
+namespace Chunhei2008\YunPian\Foundation\Support;
 /**
  * Api.php
  *

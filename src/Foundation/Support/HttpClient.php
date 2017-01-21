@@ -1,6 +1,7 @@
 <?php
 namespace Chunhei2008\YunPian\Foundation\Http;
 
+use Chunhei2008\YunPian\Foundation\Support\YunPianException;
 use GuzzleHttp\Client;
 
 /**
@@ -26,10 +27,18 @@ class HttpClient
         $this->client = new Client();
     }
 
-    public function json()
+    public function json($api, $params)
     {
 
+        $response = $this->client->post($api, [
+            'form_params' => $params,
+        ]);
 
+        if ($response->getStatusCode() == 200) {
+            return json_decode($response->getBody(), true);
+        }
+
+        throw new YunPianException('网络错误');
     }
 
 }
