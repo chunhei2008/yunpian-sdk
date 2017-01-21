@@ -13,15 +13,22 @@ use GuzzleHttp\Client;
  */
 class HttpClient
 {
-
+    /**
+     * client
+     * @var
+     */
     protected $client;
+
 
     public function __construct()
     {
-        $this->initializeClient();
+        $this->createClient();
     }
 
-    protected function initializeClient()
+    /**
+     * create client
+     */
+    protected function createClient()
     {
         $this->client = new Client();
     }

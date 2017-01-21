@@ -18,6 +18,7 @@ class Tpl extends Base
 {
 
     use HttpTrait;
+
     /**
      * 模板接口    添加模板    https://sms.yunpian.com/v2/tpl/add.json	通过接口添加模板
      * 取模板    https://sms.yunpian.com/v2/tpl/get.json	获取账户内的全部模板
@@ -95,6 +96,30 @@ class Tpl extends Base
     public function del($tplId)
     {
 
+    }
+
+    /**
+     * get tpl sms count
+     *
+     * @param $tplContent
+     *
+     * @return float|int
+     */
+    public function smsCount($tplContent)
+    {
+        $tplLen = 0;
+        $count  = preg_match_all('/#[^#]+#/', $tplContent);
+        if ($count > 0) {
+            $tplLen += $count * 10;
+            $tplContent = preg_replace('/#[^#]+#/', '', $tplContent);
+        }
+
+        $tplLen += mb_strlen($tplContent);
+
+        if ($tplLen > 70) {
+            return ceil($tplLen / 67);
+        }
+        return 1;
     }
 
 }
