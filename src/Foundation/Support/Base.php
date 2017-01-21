@@ -14,10 +14,21 @@ namespace Chunhei2008\YunPian\Foundation\Support;
 abstract class Base
 {
     /**
+     * @var
+     */
+    protected $config;
+
+    /**
      * apikey
      * @var
      */
     protected $apiKey;
+
+
+    public function __construct(Config $config)
+    {
+        $this->config = $config;
+    }
 
     /**
      * get apikey
@@ -37,7 +48,7 @@ abstract class Base
      */
     public function setApiKey($apiKey)
     {
-        $this->apiKey = $apiKey;
+        $this->apiKey = $this->config->get('apiKeys.' . $apiKey);
         return $this;
     }
 
@@ -47,6 +58,7 @@ abstract class Base
      */
     protected function getDefaultApiKey()
     {
-        return '';
+        $default = $this->config->get('default', 'system');
+        return $this->config->get('apiKeys.' . $default, '');
     }
 }

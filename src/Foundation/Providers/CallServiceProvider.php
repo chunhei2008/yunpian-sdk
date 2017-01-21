@@ -18,8 +18,8 @@ class CallServiceProvider implements ServiceProviderInterface
 
     public function register(Container $pimple)
     {
-        $pimple['call'] = function () {
-            return new Call();
+        $pimple['call'] = function ($pimple) {
+            return new Call($pimple['config']);
         };
     }
 }

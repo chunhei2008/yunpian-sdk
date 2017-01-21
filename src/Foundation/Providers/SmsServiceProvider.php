@@ -18,8 +18,8 @@ class SmsServiceProvider implements ServiceProviderInterface
 
     public function register(Container $pimple)
     {
-        $pimple['sms'] = function () {
-            return new Sms();
+        $pimple['sms'] = function ($pimple) {
+            return new Sms($pimple['config']);
         };
     }
 }

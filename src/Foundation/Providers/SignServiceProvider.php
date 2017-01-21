@@ -18,8 +18,8 @@ class SignServiceProvider implements ServiceProviderInterface
 
     public function register(Container $pimple)
     {
-        $pimple['sign'] = function () {
-            return new Sign();
+        $pimple['sign'] = function ($pimple) {
+            return new Sign($pimple['config']);
         };
     }
 }

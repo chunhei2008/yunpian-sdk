@@ -18,8 +18,8 @@ class FlowServiceProvider implements ServiceProviderInterface
 
     public function register(Container $pimple)
     {
-        $pimple['flow'] = function () {
-            return new Flow();
+        $pimple['flow'] = function ($pimple) {
+            return new Flow($pimple['config']);
         };
     }
 }

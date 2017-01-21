@@ -2,6 +2,7 @@
 namespace Chunhei2008\YunPian\Core;
 
 use Chunhei2008\YunPian\Foundation\Api;
+use Chunhei2008\YunPian\Foundation\Support\Base;
 use Chunhei2008\YunPian\Foundation\Support\YunPianException;
 use Chunhei2008\YunPian\Foundation\Traits\HttpTrait;
 
@@ -13,15 +14,11 @@ use Chunhei2008\YunPian\Foundation\Traits\HttpTrait;
  * Date:   2017/1/20 23:43
  * Copyright: (C) 2014, Guangzhou YIDEJIA Network Technology Co., Ltd.
  */
-class Sms
+class Sms extends Base
 {
     const SMS_MOBILE_LIMIT = 1000;
 
     use HttpTrait;
-
-    public function __construct()
-    {
-    }
 
     public function singleSend($mobile, $text, $options = [])
     {

@@ -18,8 +18,8 @@ class TplServiceProvider implements ServiceProviderInterface
 
     public function register(Container $pimple)
     {
-        $pimple['tpl'] = function () {
-            return new Tpl();
+        $pimple['tpl'] = function ($pimple) {
+            return new Tpl($pimple['config']);
         };
     }
 }

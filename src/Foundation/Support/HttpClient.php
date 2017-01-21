@@ -35,7 +35,8 @@ class HttpClient
         ]);
 
         if ($response->getStatusCode() == 200) {
-            return json_decode($response->getBody(), true);
+            $body = $response->getBody();
+            return json_decode($body->getContents(), true);
         }
 
         throw new YunPianException('网络错误');

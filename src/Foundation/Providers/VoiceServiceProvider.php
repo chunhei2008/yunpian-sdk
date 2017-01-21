@@ -18,8 +18,8 @@ class VoiceServiceProvider implements ServiceProviderInterface
 
     public function register(Container $pimple)
     {
-        $pimple['voice'] = function () {
-            return new Voice();
+        $pimple['voice'] = function ($pimple) {
+            return new Voice($pimple['config']);
         };
     }
 }
